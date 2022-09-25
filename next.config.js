@@ -2,59 +2,20 @@ module.exports = {
   future: {
     webpack5: false,
   },
+  
+  // env: {
+  //   NODE_ENV: 'development',
+  //   DEBUG: 'custom:*'
+  // },
 
-  async headers() {
-    return [
-      {
-        source: '/campaign/new',
-        headers: [
-          {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on'
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block'
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN'
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff'
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin'
-          },
-        ],
-      },
-      {
-        source: '/campaign/[id]/requests/new',
-        headers: [
-          {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on'
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block'
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN'
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff'
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin'
-          },
-        ],
+  apps: [{
+      name: 'yarn',
+      script: 'yarn',
+      args: 'dev',
+      interpreter: '/bin/bash',
+      env: {
+        NODE_ENV: 'development'
       }
-    ]
-  },
+    }],
+
 };
