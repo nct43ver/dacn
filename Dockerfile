@@ -8,10 +8,10 @@ COPY ["package.json","package-lock.json", "./"]
 RUN apk add --no-cache git openssh
 RUN yarn install
 COPY . .
-#RUN yarn run build
-EXPOSE 3000
+RUN yarn run build
+EXPOSE 80
 # # #USER node
-CMD ["yarn","dev"]
+CMD ["yarn","start"]
 # # #CMD ["pm2-runtime","yarn", "--", "dev"]
 
 # #stage - 1
