@@ -7,6 +7,7 @@ RUN yarn install
 COPY . .
 RUN yarn run build
 EXPOSE 80
+EXPOSE 443
 
 CMD ["yarn","start"]
 
